@@ -52,18 +52,6 @@ h3 { font-size: clamp(28px, 3vw, 42px); line-height: 1.08; }
 .button--wide { width: 100%; }
 .text-link { text-underline-offset: 6px; text-decoration-color: var(--gold); }
 
-.opening-curtain { position: fixed; z-index: 80; inset: 0; overflow: hidden; pointer-events: none; animation: curtain-away .01s linear 2.25s forwards; }
-.opening-curtain__panel { position: absolute; top: 0; bottom: 0; width: 52%; background: repeating-linear-gradient(90deg, #1c0207 0 5%, #6f0d20 11%, #9f1b31 16%, #4a0714 22%, #160105 28%); box-shadow: inset 0 0 120px rgba(0,0,0,.82), 0 0 70px rgba(0,0,0,.9); }
-.opening-curtain__panel::after { content: ""; position: absolute; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #80531b, #efd184 45%, #80531b); opacity: .75; }
-.opening-curtain__panel i { display: none; }
-.opening-curtain__panel--left { left: 0; transform-origin: left center; animation: curtain-left 1.65s cubic-bezier(.62,.02,.2,1) .45s forwards; }
-.opening-curtain__panel--left::after { right: 0; }
-.opening-curtain__panel--right { right: 0; transform-origin: right center; animation: curtain-right 1.65s cubic-bezier(.62,.02,.2,1) .45s forwards; }
-.opening-curtain__panel--right::after { left: 0; }
-@keyframes curtain-left { to { transform: translateX(-88%) skewX(7deg); } }
-@keyframes curtain-right { to { transform: translateX(88%) skewX(-7deg); } }
-@keyframes curtain-away { to { visibility: hidden; } }
-
 .hero { position: relative; min-height: 100svh; padding-bottom: 90px; overflow: hidden; background: linear-gradient(180deg, rgba(18,11,13,.38), rgba(18,11,13,.9)), url("assets/photos/stage.jpg") center 30% / cover no-repeat; }
 .hero__glow { position: absolute; inset: 12% 30% auto; height: 60%; background: radial-gradient(circle, rgba(196,154,74,.25), transparent 68%); filter: blur(20px); }
 .nav { position: relative; z-index: 5; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 28px; padding-top: 24px; }
@@ -190,7 +178,7 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
 
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } .opening-curtain { display: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
 
 @media (max-width: 900px) {
   .guest-grid { grid-template-columns: 1fr; }
