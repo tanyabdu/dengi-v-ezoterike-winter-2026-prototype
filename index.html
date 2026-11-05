@@ -9,12 +9,18 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261105-1">
-  <script src="script.js?v=20261105-1" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261105-2">
+  <script src="script.js?v=20261105-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
+
+  <div class="opening-curtain" aria-hidden="true">
+    <div class="opening-curtain__valance"><span></span></div>
+    <div class="opening-curtain__panel opening-curtain__panel--left"><i></i></div>
+    <div class="opening-curtain__panel opening-curtain__panel--right"><i></i></div>
+  </div>
 
   <header class="hero" id="top">
     <div class="curtain curtain--left" aria-hidden="true"></div>
@@ -32,7 +38,7 @@
     <div class="hero__content shell reveal">
       <p class="eyebrow">12–13 декабря 2026 · Москва</p>
       <h1>Большой зимний<br><em>сбор клуба</em></h1>
-      <p class="hero__lead">Два дня в красном бархатном шатре: известные гости, большие дебаты, премия клуба, магический квест и люди, с которыми не придётся объяснять, почему эзотерика для вас — не развлечение, а дело жизни.</p>
+      <p class="hero__lead">Два дня для тех, кто строит имя и дело в эзотерике: большая сцена, премия клуба, магический квест и живые знакомства.</p>
 
       <div class="hero__facts" aria-label="Главные факты">
         <div><strong>2</strong><span>разных дня</span></div>
@@ -54,12 +60,12 @@
       <div class="shell intro__grid">
         <div class="section-heading reveal">
           <p class="eyebrow eyebrow--dark">Два дня — два события</p>
-          <h2>Сначала говорим о будущем рынка.<br>Потом создаём его вместе.</h2>
+          <h2>12 декабря — сцена.<br>13 декабря — клубный день.</h2>
         </div>
         <div class="intro__text reveal">
-          <p><strong>12 декабря</strong> — большая сцена, известные гости, прямые вопросы, дебаты и премия клуба.</p>
-          <p><strong>13 декабря</strong> — день, когда зрителей уже нет: магический квест, приёмы у практиков, маркет участниц, съёмка контента и свободное общение внутри клуба.</p>
-          <p class="note">Это не две одинаковые конференции подряд. Каждый день даёт отдельный опыт и входит в один билет.</p>
+          <p><strong>12 декабря</strong> — гости, прямые вопросы, дебаты и премия клуба.</p>
+          <p><strong>13 декабря</strong> — квест, практики, маркет участниц, контент и общение.</p>
+          <p class="note">Два разных события входят в один билет.</p>
         </div>
       </div>
     </section>
@@ -68,7 +74,7 @@
       <div class="shell">
         <div class="section-heading section-heading--center reveal">
           <p class="eyebrow">Программа</p>
-          <h2>Два дня, после которых<br>следующий год выглядит иначе</h2>
+          <h2>Что будет за два дня</h2>
         </div>
 
         <div class="day-switcher reveal" role="tablist" aria-label="Дни программы">
@@ -82,16 +88,16 @@
             <div>
               <p class="eyebrow">Суббота · 11:30–18:20</p>
               <h3>Деньги в эзотерике: люди, рынок, будущее</h3>
-              <p>Закрытый форум о том, что происходит с эзотерическим рынком сейчас — и кто будет определять его правила в 2027 году.</p>
+              <p>Закрытый форум о рынке, публичности и профессии в 2027 году.</p>
             </div>
           </div>
           <div class="timeline">
-            <div class="timeline__item"><time>10:30</time><div><h4>Сбор гостей</h4><p>Регистрация, кофе, фотозона, знакомства и короткие видеоинтервью.</p></div></div>
+            <div class="timeline__item"><time>10:30</time><div><h4>Сбор гостей</h4><p>Кофе, фотозона и знакомства.</p></div></div>
             <div class="timeline__item"><time>11:30</time><div><h4>Открытие Кати</h4><p>«Что происходит с эзотерическим рынком и куда мы идём в 2027 году».</p></div></div>
             <div class="timeline__item"><time>12:10</time><div><h4>Волшебный гость № 1</h4><p>Публичность, известность, деньги и цена большого личного бренда.</p></div></div>
             <div class="timeline__item"><time>12:55</time><div><h4>Волшебный гость № 2</h4><p>Как превратить практику в большой проект. Выступление и вопросы Кати.</p></div></div>
             <div class="timeline__item timeline__item--pause"><time>13:40</time><div><h4>Обеденный перерыв</h4><p>Фотографии с гостями и свободное общение.</p></div></div>
-            <div class="timeline__item"><time>14:40</time><div><h4>Большие дебаты</h4><p>Можно ли строить большой бизнес на эзотерике и не потерять доверие людей? Деньги, хайп, ответственность, ИИ и будущее профессии.</p></div></div>
+            <div class="timeline__item"><time>14:40</time><div><h4>Большие дебаты</h4><p>Деньги, доверие, ответственность, ИИ и будущее профессии.</p></div></div>
             <div class="timeline__item"><time>16:30</time><div><h4>Спросите у тех, кто знает</h4><p>Прямые вопросы из зала и честные ответы людей, которые уже построили имя в эзотерике.</p></div></div>
             <div class="timeline__item"><time>17:20</time><div><h4>Премия клуба</h4><p>Номинации, истории участниц, ролики, награды и общее фото.</p></div></div>
             <div class="timeline__item timeline__item--vip"><time>18:20</time><div><h4>Закрытый VIP-ужин</h4><p>Катя, волшебные гости и только 10 обладателей VIP-билетов — за одним столом.</p></div></div>
@@ -104,7 +110,7 @@
             <div>
               <p class="eyebrow">Воскресенье · 10:00–17:00</p>
               <h3>Клубное воскресенье. Эзотерический салон для своих</h3>
-              <p>Во второй день убираем сцену и делимся на команды. Проходим квест, показываем свои проекты, снимаем контент и знакомимся с теми, кого весь год видели только в клубе.</p>
+              <p>Квест, практики, свои проекты, контент и общение без сцены.</p>
             </div>
           </div>
           <div class="timeline">
@@ -123,8 +129,8 @@
       <div class="shell">
         <div class="section-heading reveal">
           <p class="eyebrow">Волшебные гости</p>
-          <h2>Люди, которых обычно видят на экране, будут говорить с вами в одном зале</h2>
-          <p>Без записанного эфира и заготовленных безопасных ответов.</p>
+          <h2>Гости — в одном зале с вами</h2>
+          <p>Живой разговор и вопросы из зала.</p>
         </div>
         <div class="guest-grid">
           <article class="guest-card reveal">
@@ -147,16 +153,39 @@
       <div class="shell for-whom__grid">
         <div class="section-heading reveal">
           <p class="eyebrow eyebrow--dark">Вам сюда</p>
-          <h2>Если вы хотите не просто «проявляться», а занять своё место</h2>
+          <h2>Если хочется расти не в одиночку</h2>
         </div>
         <ul class="reason-list reveal">
           <li>Устали развиваться в одиночку</li>
           <li>Хотите знакомств для проектов и роста, а не для галочки</li>
           <li>Готовы говорить о цене, клиентах и профессии без стыда</li>
-          <li>Хотите увидеть тех, кто прошёл путь от практики до известного имени</li>
           <li>Ищете партнёров, клиентов и новые форматы</li>
-          <li>Хотите войти в 2027 год с новым кругом людей и конкретными решениями</li>
+          <li>Хотите войти в 2027 год с новым кругом людей</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section photo-story" aria-labelledby="photo-story-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Визуальное настроение</p>
+          <h2 id="photo-story-title">Бархат, тёплый свет<br>и разговоры до вечера</h2>
+        </div>
+        <div class="photo-story__grid">
+          <figure class="photo-story__item photo-story__item--wide reveal">
+            <img src="assets/photos/stage.jpg" alt="Красный бархатный занавес в историческом театре" loading="lazy" width="1800" height="1200">
+            <figcaption>Красный бархат и золото — основа оформления</figcaption>
+          </figure>
+          <figure class="photo-story__item reveal">
+            <img src="assets/photos/gala.jpg" alt="Гости общаются на вечернем мероприятии" loading="lazy" width="1400" height="2100">
+            <figcaption>Знакомства без формального нетворкинга</figcaption>
+          </figure>
+          <figure class="photo-story__item reveal">
+            <img src="assets/photos/dinner.jpg" alt="Гости перед камерным ужином" loading="lazy" width="1400" height="2100">
+            <figcaption>Камерный ужин для обладателей VIP-билета</figcaption>
+          </figure>
+        </div>
+        <p class="photo-story__credit">Фотографии передают визуальное настроение события, а не показывают площадку. Фото: Alexandr Istomin, Filip Rankovic Grobgaard, Peter Muniz / Unsplash.</p>
       </div>
     </section>
 
@@ -164,8 +193,8 @@
       <div class="atmosphere__veil" aria-hidden="true"></div>
       <div class="shell atmosphere__content reveal">
         <p class="eyebrow">Атмосфера</p>
-        <h2>Красный бархат.<br>Золото. Свечи.<br><em>И 60 человек.</em></h2>
-        <p>Не безликий конференц-зал, а закрытый бархатный шатёр клуба: сцена, тёплый свет, музыка, длинные разговоры и детали, которые хочется снимать.</p>
+        <h2>Красный бархат.<br>Золото. Свечи.<br><em>60 человек.</em></h2>
+        <p>Сцена, тёплый свет, музыка и детали, которые хочется снимать.</p>
       </div>
     </section>
 
@@ -173,9 +202,8 @@
       <div class="shell manifesto__grid">
         <div class="manifesto__symbol" aria-hidden="true">✦</div>
         <blockquote class="reveal">
-          <p>«Я много лет говорю, что эзотерика может быть серьёзной профессией. С ценой, ответственностью, именем и местом на рынке.</p>
-          <p>Но профессию невозможно построить только из постов и эфиров. Нужна среда. Люди, которые встречаются, спорят, создают проекты и перестают чувствовать, что каждый работает в своей маленькой комнате один.</p>
-          <p>Поэтому 12 и 13 декабря я собираю клуб в Москве. Всего 60 человек. Не для массовки. Для разговора, знакомства и решений, которые могут изменить следующий год».</p>
+          <p>«Профессию невозможно построить только из постов и эфиров. Нужна среда — люди, которые встречаются, спорят и создают проекты.</p>
+          <p>12 и 13 декабря я собираю клуб в Москве. Всего 60 человек — для разговора, знакомств и решений на следующий год».</p>
           <footer>Катя Климова</footer>
         </blockquote>
       </div>
@@ -214,7 +242,7 @@
             <button class="button button--gold button--wide payment-button" type="button" data-ticket="vip">Занять VIP-место — 19 000 ₽</button>
           </article>
         </div>
-        <p class="tickets__notice">Ссылки оплаты будут подключены после создания предложений в GetCourse и проверки юридических документов.</p>
+        <p class="tickets__notice">Оплата будет подключена после выбора сервиса и проверки юридических документов.</p>
       </div>
     </section>
 
@@ -275,7 +303,7 @@
     <button class="payment-dialog__close" type="button" aria-label="Закрыть">×</button>
     <p class="eyebrow eyebrow--dark">Предпросмотр сайта</p>
     <h2 id="payment-title">Оплата пока не подключена</h2>
-    <p>Для запуска нужны две ссылки на предложения GetCourse, оферта, политика обработки данных и подтверждённые условия возврата.</p>
+    <p>Для запуска нужно выбрать сервис оплаты — GetCourse или «Продамус», — добавить две платёжные ссылки и проверить юридические документы.</p>
     <button class="button" type="button" data-close-dialog>Понятно</button>
   </dialog>
 </body>
