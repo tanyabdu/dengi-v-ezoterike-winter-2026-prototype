@@ -148,10 +148,10 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
 .venue { background: linear-gradient(140deg, #1a0d11, #390914); }
 .venue__address { color: var(--gold-soft); font-family: var(--display); font-size: 25px; font-weight: 600; }
 .venue__note { max-width: 520px; color: var(--ink-muted); font-size: 14px; }
-.venue__map { position: relative; display: grid; place-items: center; min-height: 430px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: radial-gradient(circle, rgba(196,154,74,.16), transparent 58%), repeating-linear-gradient(35deg, transparent 0 40px, rgba(225,199,134,.05) 41px 42px), repeating-linear-gradient(125deg, transparent 0 50px, rgba(225,199,134,.04) 51px 52px); text-align: center; }
-.venue__pin { display: grid; place-items: center; width: 80px; height: 80px; margin-bottom: 26px; border: 1px solid var(--gold); border-radius: 50%; }
-.venue__pin span { width: 18px; height: 18px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 30px var(--gold); }
-.venue__map p { position: absolute; bottom: 46px; }
+.venue__map { position: relative; min-height: 430px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #f2eadc; }
+.venue__map iframe { display: block; width: 100%; height: 430px; border: 0; }
+.venue__map-link { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 18px; display: flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 20px; border: 1px solid rgba(225,199,134,.8); border-radius: 999px; background: rgba(18,11,13,.92); color: var(--gold-soft); font-size: 13px; font-weight: 800; text-decoration: none; box-shadow: 0 12px 34px rgba(18,11,13,.35); backdrop-filter: blur(10px); }
+.venue__map-link:hover { background: var(--night); color: #fff5d5; }
 
 .accordion details { border-bottom: 1px solid rgba(39,23,27,.2); }
 .accordion summary { position: relative; padding: 22px 42px 22px 0; font-family: var(--display); font-size: 21px; font-weight: 600; cursor: pointer; list-style: none; }
