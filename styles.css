@@ -105,9 +105,9 @@ h3 { font-size: clamp(28px, 3vw, 42px); line-height: 1.08; }
 .guest-card__portrait { aspect-ratio: 4/3; overflow: hidden; background: #3b0710; }
 .guest-card__portrait img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9) contrast(1.03); transition: transform .55s ease; }
 .guest-card:hover .guest-card__portrait img { transform: scale(1.025); }
-.guest-card__portrait--artem img { object-position: center 20%; }
+.guest-card__portrait--artem img { object-position: center center; }
 .guest-card__portrait--kossman img { object-position: center 24%; }
-.guest-card__portrait--anastasia img { object-position: center 18%; }
+.guest-card__portrait--anastasia img { object-position: center center; }
 .guest-card__body { padding: 28px; }
 .guest-card__index { color: var(--gold); font-size: 12px; letter-spacing: .2em; }
 .guest-card h3 { margin-bottom: 10px; font-size: 34px; }
