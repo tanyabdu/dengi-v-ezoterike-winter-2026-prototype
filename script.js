@@ -84,6 +84,7 @@ document.querySelectorAll('[data-payment-gate]').forEach((gate) => {
     }, { once: true });
 
     gate.classList.add('is-open');
+    document.body.classList.add('payment-is-open');
     widget.appendChild(script);
   });
 });
