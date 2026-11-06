@@ -198,7 +198,6 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
 .legal-document ul { padding-left: 22px; }
 .legal-document a { color: #7b3c13; text-underline-offset: 3px; }
 .legal-document__meta { margin-bottom: 42px; color: #7c655d; }
-.legal-document__note { padding: 18px 20px; border: 1px solid rgba(39,23,27,.16); border-radius: 16px; background: #fffaf0; }
 
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
