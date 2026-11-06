@@ -198,7 +198,19 @@
               <li>магический квест и программа второго дня</li>
               <li>маркет, фотозоны и знакомства</li>
             </ul>
-            <button class="button button--wide payment-button" type="button" data-ticket="standard">Купить билет — 10 000 ₽</button>
+            <div class="payment-gate" data-payment-gate data-widget-id="1679291" data-script-id="4bff824f4f97cd9345e3045f56f57067ceae43ba">
+              <label class="legal-check">
+                <input type="checkbox" data-required-consent>
+                <span>Принимаю условия <a href="offer-event.html" target="_blank" rel="noopener">публичной оферты</a></span>
+              </label>
+              <label class="legal-check">
+                <input type="checkbox" data-required-consent>
+                <span>Соглашаюсь на обработку персональных данных и ознакомлена с <a href="https://katiklimova.ru/pd" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+              </label>
+              <button class="button button--wide payment-button" type="button" disabled>Купить билет — 10 000 ₽</button>
+              <p class="payment-gate__hint">Отметьте оба согласия, чтобы открыть форму оплаты.</p>
+              <div class="payment-widget" data-payment-widget aria-live="polite"></div>
+            </div>
           </article>
 
           <article class="ticket-card ticket-card--vip reveal">
@@ -211,10 +223,22 @@
               <li>книга-тетрадь «Деньги в эзотерике»</li>
               <li>худи с выбранным арканом</li>
             </ul>
-            <button class="button button--gold button--wide payment-button" type="button" data-ticket="vip">Занять VIP-место — 19 000 ₽</button>
+            <div class="payment-gate payment-gate--vip" data-payment-gate data-widget-id="1679295" data-script-id="458eb72a8f44d064a686b9046f6de6d880726565">
+              <label class="legal-check">
+                <input type="checkbox" data-required-consent>
+                <span>Принимаю условия <a href="offer-event.html" target="_blank" rel="noopener">публичной оферты</a></span>
+              </label>
+              <label class="legal-check">
+                <input type="checkbox" data-required-consent>
+                <span>Соглашаюсь на обработку персональных данных и ознакомлена с <a href="https://katiklimova.ru/pd" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+              </label>
+              <button class="button button--gold button--wide payment-button" type="button" disabled>Занять VIP-место — 19 000 ₽</button>
+              <p class="payment-gate__hint">Отметьте оба согласия, чтобы открыть форму оплаты.</p>
+              <div class="payment-widget" data-payment-widget aria-live="polite"></div>
+            </div>
           </article>
         </div>
-        <p class="tickets__notice">Оплата будет подключена после выбора сервиса и проверки юридических документов.</p>
+        <p class="tickets__notice">После оплаты подтверждение и билет придут на электронную почту, указанную в форме.</p>
       </div>
     </section>
 
@@ -268,20 +292,14 @@
       <a class="brand" href="#top"><span class="brand__mark">Д</span><span>Деньги в эзотерике</span></a>
       <p>Большой зимний сбор · Москва · 2026</p>
       <nav aria-label="Юридические документы">
-        <span>Оферта — готовится</span>
-        <span>Политика — готовится</span>
+        <a href="offer-event.html">Публичная оферта</a>
+        <a href="https://katiklimova.ru/pd" target="_blank" rel="noopener">Политика конфиденциальности</a>
+        <a href="https://katiklimova.ru/soglasie" target="_blank" rel="noopener">Согласие на рассылку</a>
       </nav>
     </div>
   </footer>
 
   <a class="mobile-cta" href="#tickets">Билеты · от 10 000 ₽</a>
 
-  <dialog class="payment-dialog" id="payment-dialog" aria-labelledby="payment-title">
-    <button class="payment-dialog__close" type="button" aria-label="Закрыть">×</button>
-    <p class="eyebrow eyebrow--dark">Предпросмотр сайта</p>
-    <h2 id="payment-title">Оплата пока не подключена</h2>
-    <p>Для запуска нужно выбрать сервис оплаты — GetCourse или «Продамус», — добавить две платёжные ссылки и проверить юридические документы.</p>
-    <button class="button" type="button" data-close-dialog>Понятно</button>
-  </dialog>
 </body>
 </html>

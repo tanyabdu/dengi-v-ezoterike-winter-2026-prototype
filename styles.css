@@ -144,6 +144,21 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
 .ticket-card--vip li { border-color: rgba(225,199,134,.16); }
 .ticket-card li::before { content: "✦"; position: absolute; left: 0; color: var(--gold); }
 .tickets__notice { max-width: 760px; margin: 28px auto 0; color: #7c655d; font-size: 13px; text-align: center; }
+.payment-gate { margin-top: 8px; }
+.legal-check { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; margin: 0 0 11px; color: #6e5850; font-size: 12px; line-height: 1.4; }
+.ticket-card--vip .legal-check { color: var(--ink-muted); }
+.legal-check input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--gold); }
+.legal-check a, .footer a { color: inherit; text-underline-offset: 3px; }
+.legal-check a:hover, .footer a:hover { color: #9b6b22; }
+.ticket-card--vip .legal-check a:hover { color: var(--gold-soft); }
+.payment-button:disabled { cursor: not-allowed; filter: grayscale(.35); opacity: .48; transform: none; }
+.payment-gate__hint { margin: 9px 0 0; color: #8b756d; font-size: 11px; text-align: center; }
+.ticket-card--vip .payment-gate__hint { color: var(--ink-muted); }
+.payment-widget { width: 100%; margin-top: 18px; overflow: hidden; }
+.payment-widget:empty { display: none; }
+.payment-gate.is-open .legal-check,
+.payment-gate.is-open .payment-button,
+.payment-gate.is-open .payment-gate__hint { display: none; }
 
 .venue { background: linear-gradient(140deg, #1a0d11, #390914); }
 .venue__address { color: var(--gold-soft); font-family: var(--display); font-size: 25px; font-weight: 600; }
@@ -173,10 +188,17 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
 .footer nav { display: flex; gap: 18px; }
 .mobile-cta { display: none; }
 
-.payment-dialog { width: min(560px, calc(100% - 32px)); padding: 36px; border: 1px solid var(--line); border-radius: 22px; background: var(--ivory); color: var(--paper-ink); box-shadow: 0 30px 100px rgba(0,0,0,.5); }
-.payment-dialog::backdrop { background: rgba(8,3,5,.78); backdrop-filter: blur(6px); }
-.payment-dialog h2 { font-size: 42px; }
-.payment-dialog__close { position: absolute; right: 15px; top: 12px; border: 0; background: transparent; color: var(--paper-ink); font-size: 30px; cursor: pointer; }
+.legal-page { background: var(--ivory); color: var(--paper-ink); }
+.legal-page .nav { color: var(--paper-ink); }
+.legal-document { width: min(100% - 36px, 820px); margin: 0 auto; padding: 70px 0 110px; }
+.legal-document h1 { margin-bottom: 18px; font-size: clamp(42px, 7vw, 72px); line-height: .98; }
+.legal-document h2 { margin: 48px 0 16px; font-size: clamp(26px, 4vw, 36px); }
+.legal-document h3 { margin: 30px 0 12px; font-size: 22px; }
+.legal-document p, .legal-document li { font-size: 16px; line-height: 1.65; }
+.legal-document ul { padding-left: 22px; }
+.legal-document a { color: #7b3c13; text-underline-offset: 3px; }
+.legal-document__meta { margin-bottom: 42px; color: #7c655d; }
+.legal-document__note { padding: 18px 20px; border: 1px solid rgba(39,23,27,.16); border-radius: 16px; background: #fffaf0; }
 
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }

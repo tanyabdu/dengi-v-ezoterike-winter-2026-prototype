@@ -55,15 +55,35 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
 
-const paymentDialog = document.querySelector('#payment-dialog');
-const closeDialog = () => paymentDialog?.close();
+document.querySelectorAll('[data-payment-gate]').forEach((gate) => {
+  const checks = [...gate.querySelectorAll('[data-required-consent]')];
+  const button = gate.querySelector('.payment-button');
+  const widget = gate.querySelector('[data-payment-widget]');
 
-document.querySelectorAll('.payment-button').forEach((button) => {
-  button.addEventListener('click', () => paymentDialog?.showModal());
-});
+  const updateButton = () => {
+    button.disabled = !checks.every((check) => check.checked);
+  };
 
-document.querySelector('.payment-dialog__close')?.addEventListener('click', closeDialog);
-document.querySelector('[data-close-dialog]')?.addEventListener('click', closeDialog);
-paymentDialog?.addEventListener('click', (event) => {
-  if (event.target === paymentDialog) closeDialog();
+  checks.forEach((check) => check.addEventListener('change', updateButton));
+  updateButton();
+
+  button.addEventListener('click', () => {
+    if (button.disabled || gate.classList.contains('is-open')) return;
+
+    const scriptId = gate.dataset.scriptId;
+    const widgetId = gate.dataset.widgetId;
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = `https://katiklimova.ru/pl/lite/widget/script?id=${widgetId}`;
+    script.async = true;
+    script.addEventListener('load', () => {
+      document.dispatchEvent(new CustomEvent(`StartWidget${scriptId}`));
+    }, { once: true });
+    script.addEventListener('error', () => {
+      widget.innerHTML = '<p class="payment-error">Форма оплаты не загрузилась. Обновите страницу или напишите <a href="https://t.me/klimona" target="_blank" rel="noopener">Кате в Telegram</a>.</p>';
+    }, { once: true });
+
+    gate.classList.add('is-open');
+    widget.appendChild(script);
+  });
 });
