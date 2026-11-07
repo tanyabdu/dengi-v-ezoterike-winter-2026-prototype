@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261106-9">
-  <script src="script.js?v=20261106-4" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261107-1">
+  <script src="script.js?v=20261107-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
@@ -198,18 +198,9 @@
               <li>магический квест и программа второго дня</li>
               <li>маркет, фотозоны и знакомства</li>
             </ul>
-            <div class="payment-gate" data-payment-gate data-widget-id="1679291" data-script-id="4bff824f4f97cd9345e3045f56f57067ceae43ba">
-              <label class="legal-check">
-                <input type="checkbox" data-required-consent>
-                <span>Принимаю условия <a href="offer-event.html" target="_blank" rel="noopener">публичной оферты</a></span>
-              </label>
-              <label class="legal-check">
-                <input type="checkbox" data-required-consent>
-                <span>Соглашаюсь на обработку персональных данных и ознакомлена с <a href="https://katiklimova.ru/pd" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
-              </label>
-              <button class="button button--wide payment-button" type="button" disabled>Купить билет — 10 000 ₽</button>
-              <p class="payment-gate__hint">Отметьте оба согласия, чтобы открыть форму оплаты.</p>
-              <div class="payment-widget" data-payment-widget aria-live="polite"></div>
+            <div class="payment-gate">
+              <button class="button button--wide payment-button" type="button" data-payment-launch data-widget-id="1679291" data-script-id="4bff824f4f97cd9345e3045f56f57067ceae43ba" data-payment-title="Билет участника · 10 000 ₽">Купить билет — 10 000 ₽</button>
+              <p class="payment-gate__hint">Форма заказа откроется во всплывающем окне.</p>
             </div>
           </article>
 
@@ -223,18 +214,9 @@
               <li>книга-тетрадь «Деньги в эзотерике»</li>
               <li>худи с выбранным арканом</li>
             </ul>
-            <div class="payment-gate payment-gate--vip" data-payment-gate data-widget-id="1679295" data-script-id="458eb72a8f44d064a686b9046f6de6d880726565">
-              <label class="legal-check">
-                <input type="checkbox" data-required-consent>
-                <span>Принимаю условия <a href="offer-event.html" target="_blank" rel="noopener">публичной оферты</a></span>
-              </label>
-              <label class="legal-check">
-                <input type="checkbox" data-required-consent>
-                <span>Соглашаюсь на обработку персональных данных и ознакомлена с <a href="https://katiklimova.ru/pd" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
-              </label>
-              <button class="button button--gold button--wide payment-button" type="button" disabled>Занять VIP-место — 19 000 ₽</button>
-              <p class="payment-gate__hint">Отметьте оба согласия, чтобы открыть форму оплаты.</p>
-              <div class="payment-widget" data-payment-widget aria-live="polite"></div>
+            <div class="payment-gate payment-gate--vip">
+              <button class="button button--gold button--wide payment-button" type="button" data-payment-launch data-widget-id="1679295" data-script-id="458eb72a8f44d064a686b9046f6de6d880726565" data-payment-title="VIP-билет · 19 000 ₽">Занять VIP-место — 19 000 ₽</button>
+              <p class="payment-gate__hint">Форма заказа откроется во всплывающем окне.</p>
             </div>
           </article>
 
@@ -249,18 +231,9 @@
                 <li>500 ₽ на бонусный счёт в клубе</li>
               </ul>
             </div>
-            <div class="payment-gate" data-payment-gate data-widget-id="1679630" data-script-id="7599d72684bf3bd221006aef342004dcb84804fb">
-              <label class="legal-check">
-                <input type="checkbox" data-required-consent>
-                <span>Принимаю условия <a href="offer-event.html" target="_blank" rel="noopener">публичной оферты</a></span>
-              </label>
-              <label class="legal-check">
-                <input type="checkbox" data-required-consent>
-                <span>Соглашаюсь на обработку персональных данных и ознакомлена с <a href="https://katiklimova.ru/pd" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
-              </label>
-              <button class="button button--wide payment-button" type="button" disabled>Получить запись — 3 000 ₽</button>
-              <p class="payment-gate__hint">Отметьте оба согласия, чтобы открыть форму оплаты.</p>
-              <div class="payment-widget" data-payment-widget aria-live="polite"></div>
+            <div class="payment-gate">
+              <button class="button button--wide payment-button" type="button" data-payment-launch data-widget-id="1679630" data-script-id="7599d72684bf3bd221006aef342004dcb84804fb" data-payment-title="Запись встречи · 3 000 ₽">Получить запись — 3 000 ₽</button>
+              <p class="payment-gate__hint">Форма заказа откроется во всплывающем окне.</p>
             </div>
           </article>
         </div>
@@ -327,6 +300,21 @@
   </footer>
 
   <a class="mobile-cta" href="#tickets">Форматы · от 3 000 ₽</a>
+
+  <div class="payment-modal" data-payment-modal hidden>
+    <div class="payment-modal__backdrop" data-payment-close></div>
+    <section class="payment-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title" tabindex="-1">
+      <button class="payment-modal__close" type="button" aria-label="Закрыть форму заказа" data-payment-close>×</button>
+      <p class="eyebrow eyebrow--dark">Оформление заказа</p>
+      <h2 id="payment-modal-title" data-payment-modal-title>Выберите формат участия</h2>
+      <div class="payment-modal__widgets" aria-live="polite">
+        <div class="payment-widget" data-widget-slot="1679291" hidden></div>
+        <div class="payment-widget" data-widget-slot="1679295" hidden></div>
+        <div class="payment-widget" data-widget-slot="1679630" hidden></div>
+      </div>
+      <p class="payment-modal__support">Если форма не загрузилась, <a href="https://t.me/klimona" target="_blank" rel="noopener">напишите Кате в Telegram</a>.</p>
+    </section>
+  </div>
 
 </body>
 </html>

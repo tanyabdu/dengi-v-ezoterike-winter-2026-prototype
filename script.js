@@ -55,36 +55,62 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
 
-document.querySelectorAll('[data-payment-gate]').forEach((gate) => {
-  const checks = [...gate.querySelectorAll('[data-required-consent]')];
-  const button = gate.querySelector('.payment-button');
-  const widget = gate.querySelector('[data-payment-widget]');
+const paymentModal = document.querySelector('[data-payment-modal]');
 
-  const updateButton = () => {
-    button.disabled = !checks.every((check) => check.checked);
+if (paymentModal) {
+  const dialog = paymentModal.querySelector('.payment-modal__dialog');
+  const modalTitle = paymentModal.querySelector('[data-payment-modal-title]');
+  const widgetSlots = [...paymentModal.querySelectorAll('[data-widget-slot]')];
+  let lastPaymentTrigger = null;
+
+  const closePaymentModal = () => {
+    paymentModal.classList.remove('is-open');
+    document.body.classList.remove('payment-is-open');
+    window.setTimeout(() => {
+      paymentModal.hidden = true;
+      lastPaymentTrigger?.focus();
+    }, 180);
   };
 
-  checks.forEach((check) => check.addEventListener('change', updateButton));
-  updateButton();
+  const loadWidget = (slot, widgetId, scriptId) => {
+    if (slot.dataset.loaded === 'true') return;
 
-  button.addEventListener('click', () => {
-    if (button.disabled || gate.classList.contains('is-open')) return;
-
-    const scriptId = gate.dataset.scriptId;
-    const widgetId = gate.dataset.widgetId;
     const script = document.createElement('script');
     script.id = scriptId;
     script.src = `https://katiklimova.ru/pl/lite/widget/script?id=${widgetId}`;
     script.async = true;
     script.addEventListener('load', () => {
+      slot.dataset.loaded = 'true';
       document.dispatchEvent(new CustomEvent(`StartWidget${scriptId}`));
     }, { once: true });
     script.addEventListener('error', () => {
-      widget.innerHTML = '<p class="payment-error">Форма оплаты не загрузилась. Обновите страницу или напишите <a href="https://t.me/klimona" target="_blank" rel="noopener">Кате в Telegram</a>.</p>';
+      slot.innerHTML = '<p class="payment-error">Форма заказа не загрузилась. Обновите страницу или воспользуйтесь ссылкой поддержки ниже.</p>';
     }, { once: true });
+    slot.appendChild(script);
+  };
 
-    gate.classList.add('is-open');
-    document.body.classList.add('payment-is-open');
-    widget.appendChild(script);
+  document.querySelectorAll('[data-payment-launch]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const { widgetId, scriptId, paymentTitle } = button.dataset;
+      const activeSlot = widgetSlots.find((slot) => slot.dataset.widgetSlot === widgetId);
+      if (!activeSlot) return;
+
+      lastPaymentTrigger = button;
+      modalTitle.textContent = paymentTitle;
+      widgetSlots.forEach((slot) => { slot.hidden = slot !== activeSlot; });
+      paymentModal.hidden = false;
+      requestAnimationFrame(() => paymentModal.classList.add('is-open'));
+      document.body.classList.add('payment-is-open');
+      loadWidget(activeSlot, widgetId, scriptId);
+      dialog.focus();
+    });
   });
-});
+
+  paymentModal.querySelectorAll('[data-payment-close]').forEach((button) => {
+    button.addEventListener('click', closePaymentModal);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !paymentModal.hidden) closePaymentModal();
+  });
+}
