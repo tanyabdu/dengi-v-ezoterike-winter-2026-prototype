@@ -154,6 +154,24 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
 .payment-gate__hint { margin: 9px 0 0; color: #8b756d; font-size: 11px; text-align: center; }
 .ticket-card--vip .payment-gate__hint { color: var(--ink-muted); }
 .payment-widget { width: 100%; overflow: hidden; }
+.payment-widget.is-loading {
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+}
+.payment-widget.is-loading::before {
+  content: "Загружаем форму заказа…";
+  padding: 30px 12px;
+  color: #7c655d;
+  font-size: 13px;
+  text-align: center;
+}
+.payment-widget iframe {
+  display: block;
+  width: 100% !important;
+  min-height: 680px !important;
+}
+.payment-widget.is-loading iframe { grid-area: 1 / 1; }
 .payment-widget:empty { display: none; }
 .payment-is-open { overflow: hidden; }
 .payment-modal[hidden] { display: none; }
@@ -174,6 +192,7 @@ blockquote footer { margin-top: 34px; color: var(--gold-soft); font-size: 13px; 
   .payment-modal__dialog { width: 100%; max-height: 92vh; padding: 28px 18px 24px; border-radius: 24px 24px 0 0; }
   .payment-modal__dialog h2 { margin-right: 40px; }
   .payment-modal__close { top: 12px; right: 12px; }
+  .payment-widget iframe { min-height: 760px !important; }
 }
 
 .venue { background: linear-gradient(140deg, #1a0d11, #390914); }

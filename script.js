@@ -61,6 +61,7 @@ if (paymentModal) {
   const dialog = paymentModal.querySelector('.payment-modal__dialog');
   const modalTitle = paymentModal.querySelector('[data-payment-modal-title]');
   const widgetSlots = [...paymentModal.querySelectorAll('[data-widget-slot]')];
+  const paymentButtons = [...document.querySelectorAll('[data-payment-launch]')];
   let lastPaymentTrigger = null;
 
   const closePaymentModal = () => {
@@ -73,23 +74,44 @@ if (paymentModal) {
   };
 
   const loadWidget = (slot, widgetId, scriptId) => {
-    if (slot.dataset.loaded === 'true') return;
+    if (slot.dataset.loaded === 'true' || slot.dataset.loading === 'true') return;
+
+    slot.dataset.loading = 'true';
+    slot.classList.add('is-loading');
+
+    const childObserver = new MutationObserver(() => {
+      const iframe = slot.querySelector('iframe');
+      if (!iframe) return;
+
+      const markReady = () => {
+        slot.dataset.loaded = 'true';
+        slot.dataset.loading = 'false';
+        slot.classList.remove('is-loading');
+        childObserver.disconnect();
+      };
+
+      iframe.addEventListener('load', markReady, { once: true });
+      window.setTimeout(markReady, 8000);
+    });
+    childObserver.observe(slot, { childList: true });
 
     const script = document.createElement('script');
     script.id = scriptId;
     script.src = `https://katiklimova.ru/pl/lite/widget/script?id=${widgetId}`;
     script.async = true;
     script.addEventListener('load', () => {
-      slot.dataset.loaded = 'true';
       document.dispatchEvent(new CustomEvent(`StartWidget${scriptId}`));
     }, { once: true });
     script.addEventListener('error', () => {
+      childObserver.disconnect();
+      slot.dataset.loading = 'false';
+      slot.classList.remove('is-loading');
       slot.innerHTML = '<p class="payment-error">Форма заказа не загрузилась. Обновите страницу или воспользуйтесь ссылкой поддержки ниже.</p>';
     }, { once: true });
     slot.appendChild(script);
   };
 
-  document.querySelectorAll('[data-payment-launch]').forEach((button) => {
+  paymentButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const { widgetId, scriptId, paymentTitle } = button.dataset;
       const activeSlot = widgetSlots.find((slot) => slot.dataset.widgetSlot === widgetId);
@@ -105,6 +127,22 @@ if (paymentModal) {
       dialog.focus();
     });
   });
+
+  const ticketsSection = document.querySelector('#tickets');
+  if (ticketsSection && 'IntersectionObserver' in window) {
+    const widgetPreloader = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+
+      paymentButtons.forEach((button) => {
+        const { widgetId, scriptId } = button.dataset;
+        const slot = widgetSlots.find((item) => item.dataset.widgetSlot === widgetId);
+        if (slot) loadWidget(slot, widgetId, scriptId);
+      });
+      widgetPreloader.disconnect();
+    }, { rootMargin: '700px 0px' });
+
+    widgetPreloader.observe(ticketsSection);
+  }
 
   paymentModal.querySelectorAll('[data-payment-close]').forEach((button) => {
     button.addEventListener('click', closePaymentModal);
